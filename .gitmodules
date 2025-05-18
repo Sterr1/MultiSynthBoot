@@ -1,0 +1,11 @@
+[submodule "circle-stdlib"]
+	path = circle-stdlib
+	url = https://github.com/smuehlst/circle-stdlib.git
+	branch = master
+[submodule "CMSIS_5"]
+	path = CMSIS_5
+	url = https://github.com/ARM-software/CMSIS_5.git
+	branch = master
+[submodule "MiniDexed"]
+	path = MiniDexed
+	url = https://github.com/probonopd/MiniDexed.git
