@@ -1,5 +1,4 @@
-main.o main.d: main.cpp \
- ../MiniDexed/circle-stdlib/include/circle_stdlib_app.h \
+main.o main.d: main.cpp kernel.h circle_stdlib_app.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/actled.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/gpiopin.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/spinlock.h \
@@ -39,39 +38,10 @@ main.o main.d: main.cpp \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/chargenerator.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/font.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/serial.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/writebuffer.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/timer.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/logger.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/time.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhcidevice.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcidevice.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhostcontroller.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbcontroller.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usb.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbaudio.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbendpoint.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbdevice.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbconfigparser.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbfunction.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhub.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/numberpool.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhciendpoint.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhcimmiospace.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhciring.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhci.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhciconfig.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/bcmpciehostbridge.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbrequest.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/classallocator.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcirootport.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhcirootport.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcixferstagedata.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhciframescheduler.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcixactqueue.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/ptrlistfiq.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcicompletionqueue.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhciregister.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhci.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/mphi.h \
  ../MiniDexed/circle-stdlib/libs/circle/addon/SDCard/emmc.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/fs/partitionmanager.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/fs/partition.h \
@@ -83,6 +53,24 @@ main.o main.d: main.cpp \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/input/keyboardbuffer.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbkeyboard.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhiddevice.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbfunction.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbconfigparser.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usb.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbaudio.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhub.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbendpoint.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbdevice.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/numberpool.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhciendpoint.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhcimmiospace.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhciring.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhci.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/xhciconfig.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/bcmpciehostbridge.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbrequest.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/classallocator.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhostcontroller.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbcontroller.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/input/keyboardbehaviour.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/input/keymap.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhid.h \
@@ -136,10 +124,22 @@ main.o main.d: main.cpp \
  ../MiniDexed/circle-stdlib/install/aarch64-none-circle/include/sys/lock.h \
  ../MiniDexed/circle-stdlib/install/aarch64-none-circle/include/sys/cdefs.h \
  ../MiniDexed/circle-stdlib/install/aarch64-none-circle/include/sys/string.h \
- main.h ../MiniDexed/circle-stdlib/libs/circle/include/circle/startup.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/startup.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/gpiomanager.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/i2cmaster.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/spimaster.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhcidevice.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcidevice.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcirootport.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbhcirootport.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcixferstagedata.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhciframescheduler.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcixactqueue.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/ptrlistfiq.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhcicompletionqueue.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhciregister.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/dwhci.h \
+ ../MiniDexed/circle-stdlib/libs/circle/include/circle/mphi.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/usb/usbmidi.h \
  ../MiniDexed/circle-stdlib/libs/circle/addon/display/hd44780device.h \
  ../MiniDexed/circle-stdlib/libs/circle/addon/display/chardevice.h \
@@ -148,7 +148,6 @@ main.o main.d: main.cpp \
  ../MiniDexed/circle-stdlib/libs/circle/addon/display/st7789display.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/util.h \
  ../MiniDexed/circle-stdlib/libs/circle/addon/display/chardevice.h \
- ../MiniDexed/circle-stdlib/libs/circle/include/circle/writebuffer.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/multicore.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/memory.h \
  ../MiniDexed/circle-stdlib/libs/circle/include/circle/translationtable64.h \
